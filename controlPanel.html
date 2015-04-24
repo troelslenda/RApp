@@ -1,0 +1,120 @@
+<html>
+<head>
+  <script>
+    
+    var RApp = {
+
+      'init' : function () {
+        /*checkbox = $('<input>', {type: 'checkbox'});
+         checkbox.click(function(){
+         RApp.toggleSelector('.file-header[data-path*=".css"]');
+         });
+
+         $('body').prepend(checkbox);*/
+        //$('body').prepend(RApp.controlPanel());
+        console.log('hesy!');
+
+      },
+
+      'controlPanel' : function () {
+
+        var items = [
+          {name : 'css', label : 'CSS'},
+          {name : 'contrib', label : 'Contrib'},
+          {name : 'features', label : 'Features'}
+        ];
+
+        var list = $('<ul>');
+
+        $(items).each(function(){
+          var box = $('<input>', {type: 'checkbox', name : this.name});
+          var label = $('<span>').text(this.label);
+          var item = $('<li>');
+          item.append(label).append(box).appendTo(list);
+        });
+
+        return list;
+      },
+
+      'toggleSelector' : function (selector) {
+        $('.diff-view > *').each(function() {
+          console.log('hep');
+          ;
+          if ($(this).find(selector).get(0)) {
+            $(this).parent().addClass('hide-diff');
+          }
+        });
+      }
+    };
+
+
+
+
+
+  </script>
+  <style>
+
+    body {
+      width:200px;
+      margin: 0;
+      background: no-repeat url('popup-bg.png') center center;
+      font-weight: bold;
+      color:#444;
+
+    }
+    ul, li,h1, p {
+      margin:0;
+      padding:0;
+    }
+    label {
+      position: relative;
+    }
+    label, span {
+      display: block;
+    }
+    span,
+    p,
+    h1{
+      padding: 10px;
+    }
+    h1 {
+      padding-bottom: 0;
+    }
+    span:hover {
+      background-color: rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    input:checked ~ span{
+      background-color: rgba(0,0,0,0.2);
+
+    }
+    li input {
+     display: none;
+    }
+
+  </style>
+
+
+</head>
+<body>
+<p>Check which files you want to collapse in the pull request you're reviewing</p>
+<ul>
+  <li>
+    <label>
+      <input type="checkbox" name="css">
+      <span>CSS</span>
+    </label>
+  </li>
+  <li>
+    <label>
+      <input type="checkbox" name="contrib">
+      <span>Contrib</span>
+    </label>
+  </li>
+  <li>
+    <label>
+      <input type="checkbox" name="features">
+      <span>Features</span>
+    </label>
+  </li>
+</ul>
