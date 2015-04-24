@@ -1,0 +1,15 @@
+{
+  "name": "RApp",
+  "description": "Reload App",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["github.js"]
+    }
+  },
+  "icons": {
+    "16": "rapp-16.png",
+    "128": "rapp-128.png"
+  }
+}
