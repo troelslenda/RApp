@@ -21,3 +21,16 @@ chrome.runtime.onInstalled.addListener(function() {
     ]);
   });
 });
+
+
+chrome.extension.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    appendTextToBody(request.sel_text);
+  });
+
+function appendTextToBody(text) {
+  //console.log(text);
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.executeScript(tab.id, {"code" : '$("body").prepend("Test : "'+text+');'}) ;
+  });
+}

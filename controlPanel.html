@@ -1,63 +1,11 @@
 <html>
 <head>
-  <script>
-    
-    var RApp = {
-
-      'init' : function () {
-        /*checkbox = $('<input>', {type: 'checkbox'});
-         checkbox.click(function(){
-         RApp.toggleSelector('.file-header[data-path*=".css"]');
-         });
-
-         $('body').prepend(checkbox);*/
-        //$('body').prepend(RApp.controlPanel());
-        console.log('hesy!');
-
-      },
-
-      'controlPanel' : function () {
-
-        var items = [
-          {name : 'css', label : 'CSS'},
-          {name : 'contrib', label : 'Contrib'},
-          {name : 'features', label : 'Features'}
-        ];
-
-        var list = $('<ul>');
-
-        $(items).each(function(){
-          var box = $('<input>', {type: 'checkbox', name : this.name});
-          var label = $('<span>').text(this.label);
-          var item = $('<li>');
-          item.append(label).append(box).appendTo(list);
-        });
-
-        return list;
-      },
-
-      'toggleSelector' : function (selector) {
-        $('.diff-view > *').each(function() {
-          console.log('hep');
-          ;
-          if ($(this).find(selector).get(0)) {
-            $(this).parent().addClass('hide-diff');
-          }
-        });
-      }
-    };
-
-
-
-
-
-  </script>
   <style>
 
     body {
       width:200px;
       margin: 0;
-      background: no-repeat url('popup-bg.png') center center;
+      background: no-repeat url('images/popup-bg.png') center center;
       font-weight: bold;
       color:#444;
 
@@ -100,21 +48,24 @@
 <p>Check which files you want to collapse in the pull request you're reviewing</p>
 <ul>
   <li>
-    <label>
+    <label data-selector='.file-header[data-path*=".css"]'>
       <input type="checkbox" name="css">
       <span>CSS</span>
     </label>
   </li>
   <li>
-    <label>
+    <label data-selector='.file-header[data-path*="/modules/contrib/"]'>
       <input type="checkbox" name="contrib">
       <span>Contrib</span>
     </label>
   </li>
   <li>
-    <label>
+    <label data-selector=''>
       <input type="checkbox" name="features">
       <span>Features</span>
     </label>
   </li>
 </ul>
+
+<script src="scripts/jquery-1.11.2.min.js"></script>
+<script src="scripts/control.js"></script>
